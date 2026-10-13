@@ -1,0 +1,23 @@
+# Local development database for the AME reporting platform.
+# Credentials come from the environment (see .env.example).
+# Usage: docker compose up -d
+services:
+  db:
+    image: postgres:16
+    container_name: ame-reports-db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-amereports}
+      POSTGRES_USER: ${POSTGRES_USER:-amereports}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-amereports}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ame-reports-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-amereports}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  ame-reports-data:

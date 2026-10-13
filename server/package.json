@@ -1,0 +1,41 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1"
+  },
+  "description": "Backend for AME Monthly Church Reporting (Phase 1): Express + TypeScript + PostgreSQL, JWT auth, server-side rollups.",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^20.16.0",
+    "@types/pg": "^8.11.0",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.3.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "name": "ame-reporting-server",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json && cp -r src/db/migrations dist/src/db/migrations",
+    "dev": "tsx watch src/index.ts",
+    "migrate": "tsx src/db/migrate-cli.ts",
+    "seed": "tsx seed/seed.ts",
+    "start": "node dist/src/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "type": "commonjs",
+  "version": "0.1.0"
+}
