@@ -1,1 +1,23 @@
-{"description":"AME Monthly Church Reporting — production multi-user platform (Phase 1)","name":"ame-reporting-platform","private":true,"scripts":{"build:server":"npm run build --workspace=server","dev:server":"npm run dev --workspace=server","seed:server":"npm run seed --workspace=server","test:server":"npm run test --workspace=server"},"version":"0.1.0","workspaces":["server","web"]}
+{
+  "description": "AME Monthly Church Reporting — production multi-user platform (Phase 1)",
+  "name": "ame-reporting-platform",
+  "private": true,
+  "scripts": {
+    "build:server": "npm run build --workspace=server",
+    "dev:server": "npm run dev --workspace=server",
+    "seed:server": "npm run seed --workspace=server",
+    "test:server": "npm run test --workspace=server",
+    "test:e2e": "vitest run"
+  },
+  "version": "0.1.0",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "testdriverai": "^7.11.0",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  }
+}
